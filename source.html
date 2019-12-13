@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="main.js"></script>
+  <title>MyPortfolio</title>
+</head>
+<body onload="generateCaptcha()">
+  <header>
+      <div id="logo" onclick="slowScroll('#top')">
+          <span>MyPortfolio</span>
+      </div>
+      <div id="about">
+          <a href="#" title="Мои навыки" onclick="slowScroll('#main')">Мои навыки</a>
+          <a href="#" onclick="slowScroll('#projects')" title="Проекты">Проекты</a>
+          <a href="#"  onclick="slowScroll('#university')" title="Об институте">Об институте</a>
+          <a href="#"  onclick="slowScroll('#contact')" title="Обратная связь">Обратная связь</a>
+
+      </div>
+  </header>
+<!-- начальная страница -->
+  <div id="top">
+    <h1>Добро Пожаловать!</h1>
+    <h3> На страницу о моем портфолио</h3>
+  </div>
+<!-- навыки -->
+<div id="main">
+    <div class="intro">
+      <h2>Мои навыки</h2>
+    </div>
+    <div class="text">
+      <span>
+        Мои навыки в программировании увеличиваются год
+              за годом! В школе я изучал Pascal ABC.net и основы
+            HTML разметки. На первом курсе обучения в университете я начал учить язык
+           C,а уже во втором семестре перешел на C++. C++ я изучал более
+         основательно и фундаментально,так как этот язык является очень важным
+        для понимания сути в целом.На C++ я научился писать различные функции,шаблоны,
+        работать с файлами, а также с указателями. В конце семестра я перешел к
+        изучению ООП в плюсах.На втором курсе я стал изучать Java.На java я изучил
+        также работу с файлами,основы многопоточности и принципы построения UI приложений.
+        А во второй половине семестра по программе мы перешли к изучению Web разработки.
+        HTML,CSS и JS.
+</span>
+    </div>
+</div>
+
+<!-- Проекты -->
+<div id="projects">
+    <h2>Проекты</h2>
+    <div class="all_img">
+        <div class="img">
+            <img src="images\javaGR.jpg" alt="">
+            <span>Строит график по точкам из файла</span>
+        </div>
+
+        <div class="img">
+            <img src="images\template.jpg" alt="">
+            <span>Пример создания шаблона на C++</span>
+        </div>
+        <div class="img">
+            <img src="images\toUpnew1.jpg" alt="">
+            <span>Преобразует строку в верхний регистр на C++</span>
+        </div>
+    </div>
+</div>
+
+<!-- Об институте -->
+<section id="university">
+    <div class="intro">
+      <h2>Об институте</h2>
+      <img src="http://static.esosedi.org/fiber/219471/fit/1400x1000/nngu.png"alt="">
+    </div>
+    <div class="text">
+        <span>
+          ННГУ был основан в 1916году как один из трех Народных
+          университетов России.В настоящее время ННГУ является одним из ведущих
+          университетов России и представляет собой крупнейший учебно-научный
+          комплекс.В ННГУ учится более 26 000 студентов и слушателей. Уже много лет подряд на
+          всероссийских олимпиадах по математике и информатике первые, иногда к ним добавляются и вторые, места
+          занимают студенты факультета вычислительной математики и кибернетики, а по физике - студенты
+          факультета высшей школы общей и прикладной физики.В составе университета: 19 факультетов,
+          132 кафедры , 5 научно-исследовательских институтов, 9 филиалов в Нижегородской области.
+        </span>
+    </div>
+</section>
+
+<div id="contact">
+    <center><h5>Обратная связь</h5></center>
+    <form id="form_input" name="form1">
+            <label for="name">Имя <span>*</span></label><br>
+            <input type="text" placeholder="введите имя" name="name" id="name">
+            <input type="text" id="captcha" size="7" disabled/><br>
+
+            <label for="email">Ваша почта <span>*</span></label><br>
+            <input type="text" placeholder="введите почту" name="email" id="email">
+            <input type="text" id="inputText"/><br>
+
+            <label for="message">Сообщение <span>*</span></label><br>
+            <input type="text" placeholder="введите ваше сообщение" name="message" id="message">
+            <div id="butt" onclick="check()">Подтвердить</div>
+            <div id="butt" onclick="generateCaptcha()">Обновить</div>
+            <br>
+
+        <div id="mess_send" onclick="newPage()"class="btn">Отправить</div>
+    </form>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+
+  function slowScroll(id){
+    $('html,body').animate({
+      scrollTop: $(id).offset().top
+    },500)
+  }
+
+$(document).on("scroll", function () {
+  if($(window).scrollTop()<=15)
+    $("header").removeClass("fixed");
+  else
+      $("header").attr("class","fixed");
+});
+</script>
+</body>
+</html>
